@@ -8,7 +8,7 @@ public class Main {
         String[] text = new String[]{Files.readString(Paths.get("./LScode/teste.ls"))};
 
         for(String word : text){
-            System.out.printf(word);
+            //System.out.printf(word);
         }
     }
 }
