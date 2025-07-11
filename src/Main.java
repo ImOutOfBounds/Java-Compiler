@@ -16,7 +16,7 @@ public class Main {
         for (int i = 0; i < content.length(); i++) {
             char ch = content.charAt(i);
 
-            if (ch == ' ' || ch == '\n') {
+            if (ch == ' ' || ch == '\n' || ch == '(' || ch == ')' ) {
                 String tokenType = verifyTokenType(currentString.toString());
 
                 if (tokenType.equals("id"))
@@ -34,10 +34,13 @@ public class Main {
                 if (ch == '\n')
                     tokens.add(new TokenDTO("EOL"));
 
-            } else {
-                if (ch == '\'' || ch == '(' || ch == ')') {
-                    if (!currentString.toString().isBlank()) {
+                if (ch == '(' || ch == ')') {
+                    tokens.add(new TokenDTO(Character.toString(ch), currentString.toString(), varId++));
+                }
 
+            } else {
+                if (ch == '\'' || ch == '\"') {
+                    if (!currentString.toString().isBlank()) {
                         tokens.add(new TokenDTO("str"));
                         currentString = new StringBuilder();
                     }
@@ -66,6 +69,7 @@ public class Main {
         if (word.equals("=") || word.equals("==") || word.equals(">=") || word.equals("<=") || word.equals("*")
                 || word.equals("+") || word.equals("-") || word.equals("#") || word.equals("/") || word.equals("fun")
                 || word.equals("(") || word.equals(")") || word.equals("{") || word.equals("}") || word.equals("var")
+                || word.equals(",")
         )
             return word;
 

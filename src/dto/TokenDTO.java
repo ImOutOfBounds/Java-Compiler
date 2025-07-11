@@ -50,7 +50,7 @@ public class TokenDTO {
 
     @Override
     public String toString() {
-        return "CustomDTO [token " + token + ", id " + (id != null ? id : "N/A") + ", value " + value + "]";
+        return "[token " + token + ", id " + (id != null ? id : "N/A") + ", value " + value + "]";
     }
 
     public String formatToken() {
