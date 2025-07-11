@@ -1,6 +1,8 @@
 import dto.TokenDTO;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -85,6 +87,17 @@ public class Main {
         return "id";
     }
 
+    public static void writeCode(String fileName, ArrayList<TokenDTO> tokens) throws FileNotFoundException {
+        // Cria um PrintWriter para o arquivo
+        PrintWriter printWriter = new PrintWriter(fileName);
+
+        // Escreve no arquivo
+        printWriter.println(tokens);
+
+        // Fecha o PrintWriter
+        printWriter.close();
+    }
+
     public static void main(String[] args) throws IOException {
 
         String content = Files.readString(Paths.get("./LScode/teste2.ls"));
@@ -92,5 +105,6 @@ public class Main {
         ArrayList<TokenDTO> tokens = tokenize(content);
 
         printTokens(tokens);
+        writeCode("./Outputs/resp1.txt", tokens);
     }
 }
