@@ -42,13 +42,14 @@ public class Main {
                 if (ch == '\n')
                     tokens.add(new TokenDTO("EOL"));
 
-                if (ch == '\'') {
+                if (ch == '\'' || ch == '(' || ch == ')') {
                     if (!currentString.toString().equals(" ")) {
                         tokens.add(new TokenDTO("str", currentString.toString(), varId++));
                         currentString = new StringBuilder();
                     }
-                    tokens.add(new TokenDTO("'"));
+                    tokens.add(new TokenDTO(Character.toString(ch)));
                 }
+
 
                 else
                     currentString.append(ch);

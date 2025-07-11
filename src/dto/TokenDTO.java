@@ -48,12 +48,16 @@ public class TokenDTO {
         this.value = value;
     }
 
+    public String printOBJ() {
+        return "CustomDTO [token=" + token + ", id=" + (id != null ? id : "N/A") + ", value=" + value + "]";
+    }
+
     @Override
     public String toString() {
         if (id != null && value != null)
-            return "<" + token + ", " + id + "," + value +">";
+            return "<" + token + ", " + id + "," + value + ">";
         if (id == null && value != null)
-            return "<" + token + "," + value +">";
+            return "<" + token + ", " + value + ">";
         else
             return "<" + token + ">";
     }
