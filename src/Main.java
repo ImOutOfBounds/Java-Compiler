@@ -16,38 +16,40 @@ public class Main {
         for (int i = 0; i < content.length(); i++) {
             char ch = content.charAt(i);
 
-            if (ch == ' ' || ch == '\n' || ch == '(' || ch == ')' ) {
-                String tokenType = verifyTokenType(currentString.toString());
+            if (ch == ' ' || ch == '\n' || ch == '(' || ch == ')' || ch == '\t') {
+                String tokenType;
 
-                if (tokenType.equals("id"))
-                    tokens.add(new TokenDTO(tokenType, currentString.toString(), varId++));
+                if (!currentString.toString().isBlank()) {
+                    tokenType = verifyTokenType(currentString.toString());
 
-                else if (tokenType.equals("num")) {
-                    tokens.add(new TokenDTO(tokenType));
+                    if (tokenType.equals("id"))
+                        tokens.add(new TokenDTO(tokenType, currentString.toString(), varId++));
+                    else if (tokenType.equals("num"))
+                        tokens.add(new TokenDTO(tokenType));
+                    else
+                        tokens.add(new TokenDTO(tokenType));
+
+                    currentString = new StringBuilder();
                 }
-
-                else
-                    tokens.add(new TokenDTO(tokenType));
-
-                currentString = new StringBuilder();
 
                 if (ch == '\n')
                     tokens.add(new TokenDTO("EOL"));
+                if (ch == '\t')
+                    tokens.add(new TokenDTO("tab"));
 
                 if (ch == '(' || ch == ')') {
-                    tokens.add(new TokenDTO(Character.toString(ch), currentString.toString(), varId++));
+                    tokens.add(new TokenDTO(Character.toString(ch)));
                 }
 
             } else {
+
                 if (ch == '\'' || ch == '\"') {
                     if (!currentString.toString().isBlank()) {
                         tokens.add(new TokenDTO("str"));
                         currentString = new StringBuilder();
                     }
                     tokens.add(new TokenDTO(Character.toString(ch)));
-                }
-
-                else
+                } else
                     currentString.append(ch);
             }
 
