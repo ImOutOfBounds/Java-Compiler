@@ -36,6 +36,7 @@ public class Main {
 
                 if (ch == '\n')
                     tokens.add(new TokenDTO("EOL"));
+                    currentString = new StringBuilder();
                 if (ch == '\t')
                     tokens.add(new TokenDTO("tab"));
 
@@ -92,7 +93,10 @@ public class Main {
         PrintWriter printWriter = new PrintWriter(fileName);
 
         // Escreve no arquivo
-        printWriter.println(tokens);
+        for(TokenDTO tok : tokens){
+            printWriter.println("<" + tok.getToken() + "," + tok.getId() + ">");
+        }
+
 
         // Fecha o PrintWriter
         printWriter.close();
