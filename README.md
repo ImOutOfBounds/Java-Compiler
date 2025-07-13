@@ -1,6 +1,6 @@
 # Java Compiler
-
-# Tabela de Lexemas
+ 
+## Tabela de Lexemas
 
 | Tipo de Lexema                                | Forma de Escrita | Token       | Observação                                                                 |
 |----------------------------------------------|------------------|-------------|----------------------------------------------------------------------------|
@@ -30,3 +30,35 @@
 | Comentário (início e fim)                     | #                | `<#>`       | Permite comentários entre blocos lógicos, tornando o código mais didático |
 | Início do programa                            |                  | `<ini>`     |                                                                            |
 | Fim do programa                               |                  | `<fim>`     |                                                                            |
+
+## Etapas do compilador
+
+### Análise lexica
+A análise lexica é a primeira etapa de um compilador, ela é responsável por ler todos os bytes de um arquivo, interpretar todas as
+palavras e representalas por meio de estruturas chamadas de Tokens, gerando o chamado fluxo de tokens, uma estrutura que contem
+cada conjunto de palavras resumida ao seu tipo.
+A análise lexica também é responsável por:
+- remover comentários;
+- remover espaços em branco;
+- correlacionar mensagens de erro com o programa fonte, informando a linha ou a coluna que ocorreu o erro.
+
+#### Lexema x padrão x Token
+Lexema:
+Essencialmente uma palavra, uma sequencia de caracteres que existe no programa fonte.
+
+Padrão:
+Categoriza cada lexema por meio de uma categoria ou tipo.
+````java
+if (var1 > 37) {
+    outraVar += 54;
+    System.out.println("ok");
+        }
+````
+
+| categoria            | lexemas                              |
+|----------------------|--------------------------------------|
+| Identificadores      | var1, outraVar, System, out, println |
+| Constantes numericas | 37, 54                               |
+| Constantes (cadeias) | "ok"                                 |
+| Operadores           | >, +=                                |
+| Palavras chave       | if                                   |

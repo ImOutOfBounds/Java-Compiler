@@ -74,7 +74,7 @@ public class Main {
         if (word.equals("=") || word.equals("==") || word.equals(">=") || word.equals("<=") || word.equals("*")
                 || word.equals("+") || word.equals("-") || word.equals("#") || word.equals("/") || word.equals("fun")
                 || word.equals("(") || word.equals(")") || word.equals("{") || word.equals("}") || word.equals("var")
-                || word.equals(",")
+                || word.equals(",") || word.equals("+=") || word.equals("-=") || word.equals("/=") || word.equals("*=")
         )
             return word;
 

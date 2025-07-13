@@ -1,0 +1,5 @@
+videos vistos:
+- Construção de Compiladores - Aula 02: Tópico 02 - Análise Léxica - Parte 1
+29:37
+https://www.youtube.com/watch?v=ZdtSFpJameE&ab_channel=dlucredio
+
