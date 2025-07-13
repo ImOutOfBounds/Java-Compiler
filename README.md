@@ -55,10 +55,31 @@ if (var1 > 37) {
         }
 ````
 
-| categoria            | lexemas                              |
-|----------------------|--------------------------------------|
-| Identificadores      | var1, outraVar, System, out, println |
-| Constantes numericas | 37, 54                               |
-| Constantes (cadeias) | "ok"                                 |
-| Operadores           | >, +=                                |
-| Palavras chave       | if                                   |
+| categoria            | lexemas                              | Padrão                                 |
+|----------------------|--------------------------------------|----------------------------------------|
+| Identificadores      | var1, outraVar, System, out, println | Cadeia de caracteres                   |
+| Constantes numericas | 37, 54                               | Sequência de dígitos                   |
+| Constantes (cadeias) | "ok"                                 | Cadeia de caracteres envolta por aspas |
+| Operadores           | >, +=                                | O proprio lexema                       |
+| Palavras chave       | if                                   | O proprio lexema                       |
+
+Token: 
+É uma unidade lexica correspondente a um lexema, utilizada para a estruturação do codigo lido em um conjunto
+de objetos que podem ser interpretados pelas partes posteriores do compilador 'Analisador sintático'.
+
+````java
+public class TokenDTO {
+
+    private String token;
+    private Integer id;  
+    private String value;
+}
+````
+
+gerando a seguinte estrutura: 
+
+````
+<token, id, value>
+````
+
+Os tokens são o output final do analisador lexico.
