@@ -3,10 +3,7 @@ package service;
 import dto.TokenDTO;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class TokenizeService {
@@ -103,15 +100,5 @@ public class TokenizeService {
 
         // Fecha o PrintWriter
         printWriter.close();
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        String content = Files.readString(Paths.get("./LScode/teste2.ls"));
-
-        ArrayList<TokenDTO> tokens = tokenize(content);
-
-        printTokens(tokens);
-        writeCode("./Outputs/resp1.txt", tokens);
     }
 }
