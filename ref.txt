@@ -3,3 +3,10 @@ videos vistos:
 29:37
 https://www.youtube.com/watch?v=ZdtSFpJameE&ab_channel=dlucredio
 
+- Construção de Compiladores - Aula 05: Tópico 03 - Análise Sintática - Introdução
+1:25:49
+https://www.youtube.com/watch?v=5OAwf86vyhA&ab_channel=dlucredio
+
+- Construção de Compiladores - Aula 07: Tópico 05 - Análise Sintática Ascendente
+51:23
+https://www.youtube.com/watch?v=DHM8aYzdcQ8

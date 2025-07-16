@@ -1,3 +1,5 @@
+package service;
+
 import dto.TokenDTO;
 
 import java.io.FileNotFoundException;
@@ -7,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Main {
+public class TokenizeService {
 
     public static ArrayList<TokenDTO> tokenize(String content){
         ArrayList<TokenDTO> tokens = new ArrayList<>();
@@ -34,9 +36,10 @@ public class Main {
                     currentString = new StringBuilder();
                 }
 
-                if (ch == '\n')
+                if (ch == '\n'){
                     tokens.add(new TokenDTO("EOL"));
                     currentString = new StringBuilder();
+                    }
                 if (ch == '\t')
                     tokens.add(new TokenDTO("tab"));
 
