@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class SyntacticAnalysisService {
 
-
+    /*
     public void syntaticAnalysis(ArrayList<TokenDTO> tokens){
         ArrayList<String> stack = new ArrayList<>();
 
@@ -30,6 +30,7 @@ public class SyntacticAnalysisService {
             }
         }
     }
+    */
 
     public static void main(String[] args) throws IOException {
 

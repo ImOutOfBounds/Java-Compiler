@@ -71,15 +71,21 @@ public class TokenizeService {
 
         char ch = word.charAt(0);
 
-        if (word.equals("=") || word.equals("==") || word.equals(">=") || word.equals("<=") || word.equals("*")
-                || word.equals("+") || word.equals("-") || word.equals("#") || word.equals("/") || word.equals("fun")
-                || word.equals("(") || word.equals(")") || word.equals("{") || word.equals("}") || word.equals("var")
-                || word.equals(",") || word.equals("+=") || word.equals("-=") || word.equals("/=") || word.equals("*=")
-        )
-            return word;
-
-        if (word.equals("int") || word.equals("String") || word.equals("Double"))
-            return "typ";
+        switch (word) {
+            case "=", "==", ">=", "<=", "*", "+", "-", "#", "/", "fun", "(", ")", "{", "}", "var", ",", "+=", "-=",
+                 "/=", "*=" -> {
+                return word;
+            }
+            case "int", "String", "Double" -> {
+                return "typ";
+            }
+            case "return" -> {
+                return "ret";
+            }
+            case "for", "while", "print" -> {
+                return "prtf";
+            }
+        }
 
         if (Character.isDigit(ch)) {
             return "num";
@@ -96,7 +102,6 @@ public class TokenizeService {
         for(TokenDTO tok : tokens){
             printWriter.println("<" + tok.getToken() + "," + tok.getId() + ">");
         }
-
 
         // Fecha o PrintWriter
         printWriter.close();
