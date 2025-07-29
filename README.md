@@ -83,3 +83,15 @@ gerando a seguinte estrutura:
 ````
 
 Os tokens são o output final do analisador lexico.
+
+### Análise semantica
+
+### 📚 Regras de Redução
+
+| Redução | Sequência                           |
+|---------|-------------------------------------|
+| DEC     | `<var> <typ> <id> <=> <VAL>`        |
+| VAL     | `<num>` &#124; `<str>` &#124;&#124; `<FNC>` |
+| FNC     | `<fun> <(> <)>` &#124;&#124; `<fun> <(> <PAR> <)>` |
+| PAR     | *(vazio)*                           |
+| CRB     | `<{> <}>`                           |
