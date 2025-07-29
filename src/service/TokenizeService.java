@@ -68,7 +68,7 @@ public class TokenizeService {
     }
 
     public static String verifyTokenType(String word){
-
+        word = word.trim();
         char ch = word.charAt(0);
 
         switch (word) {
